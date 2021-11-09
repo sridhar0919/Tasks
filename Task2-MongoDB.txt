@@ -1,0 +1,34 @@
+
+use zen
+
+1. Find all the topics and tasks which are thought in the month of October
+
+Ans - 
+   db.tasks.find( { "month" : "october" } )
+   db.topics.find( {"month" : "october"} )
+
+
+2. Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+Ans - db.company_drives.find( { drives : { $gt: new Date('2020-15-10'), $lt: new Date('2020-31-10') } } )
+
+
+3. Find all the company drives and students who are appeared for the placement.
+
+Ans - db.company_drives.find( { } , { drives:1,students_appeared_placement:1 } )
+
+
+4. Find the number of problems solved by the user in codekata.
+
+Ans - db.codekata.find( { "user" : "Raj" } )
+
+
+5. Find all the mentors with who has the mentee's count more than 15.
+
+Ans - db.mentors.find({no_of_mentees : {$gt:15}})
+
+
+6. Find the number of users who are absent and task is not submitted  between 15 oct-2020 and 31-oct-2020.
+
+Ans - db.attendance.find({"attendance":"absent" })
+      db.tasks.find(task:{$not:{$gt:new Date('2020-15-10'),$lt: new Date('2020-31-10')}})

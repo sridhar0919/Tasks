@@ -1,0 +1,131 @@
+// Created Schema profile_status
+
+create schema profile_status;
+
+
+// Created table profile status
+
+create table profile_status(
+    id int,
+    status varchar(255)
+ )
+
+insert into profile_status values
+   (1,"I'm not lazy,just chill"),
+   (2,"All the best people are crazy"),
+   (3,"Let life surprise you"),
+   (4,"Simplicity is the essence of happiness"),
+   (5,"Keep the smile on!")
+----------------------------------------
+
+// Created table user_profile
+
+create table user_profile(
+   id int,
+   name varchar(255),
+   email varchar(255),
+   location varchar(255)
+)
+
+insert into user_profile values
+   (1,"Harry","harry@gmail.com","Hogwards"),
+   (2,"Hermoine","hermoine@gmail.com","London"),
+   (3,"Ronald","ronald@gmail.com","Hogwards"),
+   (4,"Dumbledore","dumbledore@gmail.com","Hogwards"),
+   (5,"Snape","snape@gmail.com","Sydney")
+
+--------------------------------------
+
+// Created table friends
+
+create table friends(
+   id int,
+   list_of_names varchar(255)
+)
+
+insert into friends values
+    (1,"John,Adam,Kohli"),
+    (2,"Dhoni,Jadeja,Raina"),
+    (3,"Rohit,Hardik,Boult"),
+    (4,"Jon,Arya,Sansa"),
+    (5,"Ronaldo,Messi,Neymar")
+----------------------------------------------
+// Created table comments
+
+create table comments(
+   id int,
+   comments int
+)
+
+insert into comments values
+    (1,20),
+    (2,10),
+    (3,50),
+    (4,100),
+    (5,5)
+
+--------------------------------------------------
+// Created table likes
+
+create table likes(
+   id int,
+   likes int
+)
+
+insert into likes values
+    (1,20),
+    (2,10),
+    (3,50),
+    (4,100),
+    (5,5)
+--------------------------------------------------
+// Created table user_login_details
+
+create table user_login_details(
+   id int,
+   userid varchar(255),
+   password varchar(255)
+)
+
+insert into user_login_details values
+    (1,"harry12","12345"),
+    (2,"hermoiness","derf234"),
+    (3,"ron898","def32@"),
+    (4,"dumble6565","fgt555!"),
+    (5,"snape222","vfghy78@")
+
+---------------------------------------------
+// Created table posts
+
+create table posts(
+   id int,
+   posts varchar(255)
+)
+
+insert into posts values
+    (1,"Stay safe from Corona,Pic in the hills,Ocean!my fav spot"),
+    (2,"At nilgiris,Get vaccinated stay safe"),
+    (3,"In Paris,My home my happiness"),
+    (4,"Game of thrones finale is here,My fav one"),
+    (5,"Selfie time,Party started,New life new hope")
+
+
+----------------------------------------------------
+Answers
+
+1. SELECT list_of_names FROM friends WHERE id=3;
+
+2. SELECT posts FROM posts WHERE id=5;
+
+3. SELECT name,email FROM user_profile WHERE email LIKE "%gmail%";
+
+4. SELECT comments FROM comments WHERE id=3 LIMIT 5;
+
+5. SELECT a.status,b.name,b.email,b.location,c.userid,c.password 
+      FROM profile_status a,user_profile b,user_login_details c
+      WHERE a.id = b.id and b.id = c.id
+
+
+
+
+
